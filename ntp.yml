@@ -27,11 +27,3 @@
       lines:
           - "{{ item }}"
     register: set_ntp
-
-  - name: remove ntp server commands
-    when: "(get_config.stdout_lines[0] != '') and (item not in ntp_servers)"
-    with_items: "{{ get_config.stdout_lines[0] }}"
-    register: remove_ntp
-    ios_config:
-      lines:
-        - "no {{ item }}"
