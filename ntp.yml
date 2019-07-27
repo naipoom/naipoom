@@ -35,8 +35,3 @@
     ios_config:
       lines:
         - "no {{ item }}"
-
-  - name: servicenow_network_tickets
-    when: set_ntp.changed or remove_ntp.changed
-    import_role:
-      name: servicenow_network_tickets
